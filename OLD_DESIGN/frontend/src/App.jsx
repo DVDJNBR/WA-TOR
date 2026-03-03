@@ -129,6 +129,24 @@ function App() {
                                 onChange={e => setParams({...params, num_sharks: parseInt(e.target.value)})}
                                 className="w-16 border rounded px-1" />
                           </div>
+                          <div className="flex justify-between items-center">
+                             <span>Fish Breed Time:</span>
+                             <input type="number" value={params.fish_breed_time}
+                                onChange={e => setParams({...params, fish_breed_time: parseInt(e.target.value)})}
+                                className="w-16 border rounded px-1" />
+                          </div>
+                          <div className="flex justify-between items-center">
+                             <span>Shark Breed Time:</span>
+                             <input type="number" value={params.shark_breed_time}
+                                onChange={e => setParams({...params, shark_breed_time: parseInt(e.target.value)})}
+                                className="w-16 border rounded px-1" />
+                          </div>
+                          <div className="flex justify-between items-center">
+                             <span>Shark Starve Time:</span>
+                             <input type="number" value={params.shark_starve_time}
+                                onChange={e => setParams({...params, shark_starve_time: parseInt(e.target.value)})}
+                                className="w-16 border rounded px-1" />
+                          </div>
                            <div className="flex justify-between items-center">
                              <span>Size (WxH):</span>
                              <div className="flex gap-1">
