@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    restart: always
+    environment:
+      - ALLOWED_ORIGINS=http://wa-tor.dvdjnbr.fr,http://localhost:3000
+    networks:
+      - wator-net
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - wator-net
+
+networks:
+  wator-net:
+    driver: bridge
