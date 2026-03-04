@@ -3,185 +3,264 @@
 @tailwind utilities;
 
 body {
-    background-color: #121212;
-    color: #e0e0e0;
+    background: radial-gradient(circle at 50% 10%, #001f3f, #001122 70%, #000814 100%);
+    color: #e0f2fe;
     font-family: 'Inter', system-ui, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
-/* Neomorphic Containers */
-.neo-container {
-    background: #171717;
+/* Glassmorphism Containers */
+.glass-panel {
+    background: rgba(0, 31, 63, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: 16px;
-    box-shadow:  8px 8px 16px #0d0d0d,
-                 -8px -8px 16px #212121;
-    border: 1px solid rgba(255,255,255,0.02);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Neomorphic Buttons */
-.neo-button {
-    background: #171717;
+/* Glass Buttons */
+.glass-button {
+    background: rgba(14, 165, 233, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 12px;
-    box-shadow:  5px 5px 10px #0d0d0d,
-                 -5px -5px 10px #212121;
-    transition: all 0.2s ease-in-out;
-    border: none;
-    color: #e0e0e0;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    color: #bae6fd;
     font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.neo-button:hover {
-    box-shadow:  7px 7px 14px #0d0d0d,
-                 -7px -7px 14px #212121;
+.glass-button:hover {
+    background: rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.6);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+    transform: translateY(-1px);
 }
 
-.neo-button:active {
-    box-shadow: inset 5px 5px 10px #0d0d0d,
-                inset -5px -5px 10px #212121;
+.glass-button:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Specific button colors for glows */
-.neo-button.btn-green {
-    color: #10b981;
+/* Colors for buttons */
+.btn-ocean {
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
 }
-.neo-button.btn-red {
-    color: #ef4444;
-}
-.neo-button.btn-blue {
-    color: #3b82f6;
-}
-.neo-button.btn-cyan {
-    color: #06b6d4;
-}
-.neo-button.btn-orange {
-    color: #f97316;
+.btn-ocean:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
-/* Neomorphic Input/Slider */
-.neo-input {
-    background: #171717;
+.btn-coral {
+    border-color: rgba(251, 146, 60, 0.3);
+    color: #fb923c;
+}
+.btn-coral:hover {
+    background: rgba(251, 146, 60, 0.15);
+    border-color: rgba(251, 146, 60, 0.6);
+    box-shadow: 0 0 15px rgba(251, 146, 60, 0.4);
+}
+
+.btn-seafoam {
+    border-color: rgba(52, 211, 153, 0.3);
+    color: #34d399;
+}
+.btn-seafoam:hover {
+    background: rgba(52, 211, 153, 0.15);
+    border-color: rgba(52, 211, 153, 0.6);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+}
+
+/* Inputs */
+.glass-input {
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    box-shadow: inset 4px 4px 8px #0d0d0d,
-                inset -4px -4px 8px #212121;
-    border: none;
-    color: #e0e0e0;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    color: #e0f2fe;
     padding: 0.5rem;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-.neo-input:focus {
+.glass-input:focus {
     outline: none;
-    box-shadow: inset 4px 4px 8px #0d0d0d,
-                inset -4px -4px 8px #212121,
-                0 0 0 2px rgba(6, 182, 212, 0.3);
+    border-color: rgba(56, 189, 248, 0.8);
+    background: rgba(14, 165, 233, 0.1);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
-/* Neomorphic Empty Cell */
-.neo-cell {
-    background: #171717;
+/* Grid Cells */
+.glass-cell {
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 6px;
-    box-shadow: inset 3px 3px 6px #0d0d0d,
-                inset -3px -3px 6px #212121;
+    border: 1px solid rgba(14, 165, 233, 0.1);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.1rem;
 }
 
-/* Text Glows */
-.glow-cyan {
-    color: #06b6d4;
-    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.4);
+/* Glow Utilities */
+.glow-teal {
+    color: #2dd4bf;
+    text-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
 }
 
-.glow-orange {
-    color: #f97316;
-    text-shadow: 0 0 10px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.4);
+.glow-blue {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.glow-coral {
+    color: #fb923c;
+    text-shadow: 0 0 10px rgba(251, 146, 60, 0.6);
 }
 
 .glow-white {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    color: #f0f9ff;
+    text-shadow: 0 0 10px rgba(240, 249, 255, 0.6);
 }
 
-/* Shape styles */
-.shape-x {
+/* --- THE WOW EFFECT: Wave Button Hover --- */
+.wave-btn-container {
     position: relative;
-    width: 60%;
-    height: 60%;
+    display: inline-block;
+    width: 100%;
 }
-.shape-x::before, .shape-x::after {
+
+.wave-btn {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    overflow: hidden; /* keep content clean inside */
+}
+
+/* The dots that circle the button on hover */
+.wave-btn-container::before,
+.wave-btn-container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 11;
+}
+
+.wave-btn-container:hover::before {
+    opacity: 1;
+    animation: waveAround1 2s linear infinite;
+}
+
+.wave-btn-container:hover::after {
+    opacity: 1;
+    animation: waveAround2 2s linear infinite;
+}
+
+/* Path: Start top-left, go right, down, left, up */
+@keyframes waveAround1 {
+    0%   { top: -4px; left: 10%; transform: scale(1); }
+    25%  { top: 50%; left: calc(100% + 4px); transform: scale(1.5); }
+    50%  { top: calc(100% + 4px); left: 90%; transform: scale(1); }
+    75%  { top: 50%; left: -4px; transform: scale(1.5); }
+    100% { top: -4px; left: 10%; transform: scale(1); }
+}
+
+/* Path: Start bottom-right, go left, up, right, down */
+@keyframes waveAround2 {
+    0%   { top: calc(100% + 4px); left: 90%; transform: scale(1); }
+    25%  { top: 50%; left: -4px; transform: scale(1.5); }
+    50%  { top: -4px; left: 10%; transform: scale(1); }
+    75%  { top: 50%; left: calc(100% + 4px); transform: scale(1.5); }
+    100% { top: calc(100% + 4px); left: 90%; transform: scale(1); }
+}
+
+/* Button ripple wave on hover (background) */
+.wave-btn::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 20%;
-    background-color: #06b6d4;
-    border-radius: 2px;
-    box-shadow: 0 0 8px #06b6d4, 0 0 12px #06b6d4;
-}
-.shape-x::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-.shape-x::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.shape-o {
-    width: 55%;
-    height: 55%;
-    border: 3px solid #f97316;
+    width: 0;
+    height: 0;
+    background: rgba(56, 189, 248, 0.2);
     border-radius: 50%;
-    box-shadow: 0 0 8px #f97316, inset 0 0 8px #f97316;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
 }
 
-/* Range slider thumb */
-input[type="range"].neo-slider {
+.wave-btn-container:hover .wave-btn::before {
+    width: 300px;
+    height: 300px;
+    animation: ripple 1.5s infinite linear;
+}
+
+@keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+}
+
+
+/* Slider */
+input[type="range"].glass-slider {
     -webkit-appearance: none;
     width: 100%;
     background: transparent;
 }
-input[type="range"].neo-slider::-webkit-slider-runnable-track {
+input[type="range"].glass-slider::-webkit-slider-runnable-track {
     width: 100%;
-    height: 12px;
+    height: 8px;
     cursor: pointer;
-    background: #171717;
-    border-radius: 6px;
-    box-shadow: inset 3px 3px 6px #0d0d0d,
-                inset -3px -3px 6px #212121;
+    background: rgba(0,0,0,0.3);
+    border-radius: 4px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
 }
-input[type="range"].neo-slider::-webkit-slider-thumb {
-    height: 20px;
-    width: 20px;
+input[type="range"].glass-slider::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
     border-radius: 50%;
-    background: #171717;
+    background: #0ea5e9;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -4px;
-    box-shadow:  2px 2px 4px #0d0d0d,
-                 -2px -2px 4px #212121;
-    border: 2px solid #06b6d4;
+    margin-top: -6px;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
+    border: 2px solid #e0f2fe;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #171717;
-    box-shadow: inset 2px 2px 5px #0d0d0d,
-                inset -2px -2px 5px #212121;
-    border-radius: 6px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #212121;
-    border-radius: 6px;
-    box-shadow: 2px 2px 5px #0d0d0d,
-                -2px -2px 5px #212121;
+    background: rgba(14, 165, 233, 0.3);
+    border-radius: 5px;
+    border: 1px solid rgba(14, 165, 233, 0.1);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #2a2a2a;
+    background: rgba(14, 165, 233, 0.5);
+}
+
+/* Animated Cursor Trail (implemented via simple CSS if possible, but requires JS. We'll stick to a custom cursor if needed, or simple styling) */
+body {
+    /* Custom subtle crosshair for a technical/aquatic feel */
+    cursor: crosshair;
 }
