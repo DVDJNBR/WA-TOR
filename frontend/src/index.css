@@ -3,5 +3,185 @@
 @tailwind utilities;
 
 body {
-    background-color: #f0f9ff;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Neomorphic Containers */
+.neo-container {
+    background: #171717;
+    border-radius: 16px;
+    box-shadow:  8px 8px 16px #0d0d0d,
+                 -8px -8px 16px #212121;
+    border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Neomorphic Buttons */
+.neo-button {
+    background: #171717;
+    border-radius: 12px;
+    box-shadow:  5px 5px 10px #0d0d0d,
+                 -5px -5px 10px #212121;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.neo-button:hover {
+    box-shadow:  7px 7px 14px #0d0d0d,
+                 -7px -7px 14px #212121;
+}
+
+.neo-button:active {
+    box-shadow: inset 5px 5px 10px #0d0d0d,
+                inset -5px -5px 10px #212121;
+}
+
+/* Specific button colors for glows */
+.neo-button.btn-green {
+    color: #10b981;
+}
+.neo-button.btn-red {
+    color: #ef4444;
+}
+.neo-button.btn-blue {
+    color: #3b82f6;
+}
+.neo-button.btn-cyan {
+    color: #06b6d4;
+}
+.neo-button.btn-orange {
+    color: #f97316;
+}
+
+/* Neomorphic Input/Slider */
+.neo-input {
+    background: #171717;
+    border-radius: 8px;
+    box-shadow: inset 4px 4px 8px #0d0d0d,
+                inset -4px -4px 8px #212121;
+    border: none;
+    color: #e0e0e0;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.neo-input:focus {
+    outline: none;
+    box-shadow: inset 4px 4px 8px #0d0d0d,
+                inset -4px -4px 8px #212121,
+                0 0 0 2px rgba(6, 182, 212, 0.3);
+}
+
+/* Neomorphic Empty Cell */
+.neo-cell {
+    background: #171717;
+    border-radius: 6px;
+    box-shadow: inset 3px 3px 6px #0d0d0d,
+                inset -3px -3px 6px #212121;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text Glows */
+.glow-cyan {
+    color: #06b6d4;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.glow-orange {
+    color: #f97316;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.glow-white {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Shape styles */
+.shape-x {
+    position: relative;
+    width: 60%;
+    height: 60%;
+}
+.shape-x::before, .shape-x::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 20%;
+    background-color: #06b6d4;
+    border-radius: 2px;
+    box-shadow: 0 0 8px #06b6d4, 0 0 12px #06b6d4;
+}
+.shape-x::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.shape-x::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.shape-o {
+    width: 55%;
+    height: 55%;
+    border: 3px solid #f97316;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #f97316, inset 0 0 8px #f97316;
+}
+
+/* Range slider thumb */
+input[type="range"].neo-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+input[type="range"].neo-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    background: #171717;
+    border-radius: 6px;
+    box-shadow: inset 3px 3px 6px #0d0d0d,
+                inset -3px -3px 6px #212121;
+}
+input[type="range"].neo-slider::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #171717;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -4px;
+    box-shadow:  2px 2px 4px #0d0d0d,
+                 -2px -2px 4px #212121;
+    border: 2px solid #06b6d4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #171717;
+    box-shadow: inset 2px 2px 5px #0d0d0d,
+                inset -2px -2px 5px #212121;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #212121;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px #0d0d0d,
+                -2px -2px 5px #212121;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #2a2a2a;
 }
