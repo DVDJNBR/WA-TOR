@@ -88,7 +88,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen text-white p-4 md:p-8 font-sans selection:bg-sky-500/30 overflow-hidden relative">
+    <div className="min-h-screen text-white p-4 md:p-8 font-sans selection:bg-sky-500/30 overflow-hidden relative flex flex-col">
 
       {/* Custom Cursor Effect (stylized light following the mouse) */}
       <div
@@ -100,12 +100,9 @@ function App() {
         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 uppercase drop-shadow-2xl">
           <span className="glow-white font-serif italic pr-2">Wa-Tor</span> <span className="text-sky-200 font-light">Ocean</span>
         </h1>
-        <p className="text-sky-300/80 max-w-xl text-sm uppercase tracking-widest font-semibold mt-2">
-          Predator-Prey Dynamics Simulator
-        </p>
       </header>
       
-      <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10">
+      <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow">
           {/* Controls Panel */}
           <aside className="w-full xl:w-80 space-y-6 flex-shrink-0">
               <div className="glass-panel p-6">
@@ -245,6 +242,34 @@ function App() {
              </div>
           </section>
       </main>
+
+      {/* Footer Navigation (About, How To, Source) */}
+      <footer className="mt-12 py-6 relative z-10 flex justify-center gap-6">
+        <div className="relative group">
+           <button className="glass-button px-6 py-2 uppercase tracking-widest text-xs btn-ocean">How To</button>
+           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 glass-panel text-xs text-sky-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none">
+             <p className="font-bold mb-2 border-b border-sky-500/30 pb-1">Rules of the Ocean</p>
+             <ul className="list-disc pl-4 space-y-1 text-[11px]">
+               <li><strong className="text-teal-300">Fish:</strong> Move randomly to adjacent empty spaces. Breed after surviving a set number of cycles.</li>
+               <li><strong className="text-orange-300">Sharks:</strong> Seek out adjacent fish to eat, otherwise move randomly. Breed after surviving a set number of cycles. Starve if they don't eat within their starvation limit.</li>
+             </ul>
+             <p className="mt-2 text-[10px] text-sky-300/70 italic">The goal is to find the perfect parameter balance to achieve an infinite, stable ecosystem.</p>
+           </div>
+        </div>
+
+        <div className="relative group">
+           <button className="glass-button px-6 py-2 uppercase tracking-widest text-xs btn-seafoam">About</button>
+           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 glass-panel text-xs text-sky-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none">
+             <p className="font-bold mb-2 border-b border-sky-500/30 pb-1">Wa-Tor Simulation</p>
+             <p className="mb-2">A population dynamics simulation devised by A.K. Dewdney, originally presented in Scientific American (1984).</p>
+             <p>This application models the fragile balance of a predator-prey ecosystem, demonstrating how populations fluctuate interdependently over time.</p>
+           </div>
+        </div>
+
+        <a href="https://github.com/DVDJNBR/TICTACTOE" target="_blank" rel="noopener noreferrer" className="glass-button px-6 py-2 uppercase tracking-widest text-xs btn-coral flex items-center justify-center">
+           Source
+        </a>
+      </footer>
     </div>
   )
 }

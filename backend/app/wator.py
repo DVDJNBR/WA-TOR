@@ -110,7 +110,7 @@ class WatorSimulation:
         shark.energy -= 1 # Lose energy every turn
 
         if shark.energy < 0:
-            self.grid[y][x] = None # Die
+            self.grid[y][x] = None
             return
 
         neighbors = self._get_neighbors(x, y)

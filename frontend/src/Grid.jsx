@@ -16,7 +16,7 @@ const Grid = ({ grid }) => {
                 key={`${x}-${y}`} 
                 className={`w-6 h-6 md:w-8 md:h-8 transition-all duration-300 glass-cell hover:bg-white/10 ${
                     cell === 'fish' ? 'shadow-[inset_0_0_10px_rgba(45,212,191,0.2)]' :
-                    cell === 'shark' ? 'shadow-[inset_0_0_10px_rgba(251,146,60,0.2)]' : ''
+                    cell === 'shark' ? 'shadow-[inset_0_0_10px_rgba(56,189,248,0.2)]' : ''
                 }`}
                 title={`(${x},${y}) ${cell}`}
             >
