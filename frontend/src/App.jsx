@@ -8,6 +8,7 @@ function App() {
   const [stats, setStats] = useState({ fish: 0, shark: 0, steps: 0 })
   const intervalRef = useRef(null)
   const [speed, setSpeed] = useState(150)
+  const [isMinimalDesign, setIsMinimalDesign] = useState(true)
 
   // Simulation Parameters
   const [params, setParams] = useState({
@@ -79,8 +80,9 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#121212] text-[#e0e0e0] p-4 md:p-8 font-sans selection:bg-cyan-500/30">
-      <header className="max-w-7xl mx-auto flex flex-col items-center mb-10 text-center">
+    <div className="min-h-screen flex flex-col bg-[#121212] text-[#e0e0e0] font-sans selection:bg-cyan-500/30">
+      <div className="flex-grow p-4 md:p-8">
+        <header className="max-w-7xl mx-auto flex flex-col items-center mb-10 text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 uppercase">
           <span className="glow-white">WA-TOR</span> <span className="text-[#333]">SIM</span>
         </h1>
@@ -118,6 +120,13 @@ function App() {
                       className="w-full neo-button py-3 px-4 btn-blue uppercase tracking-widest text-sm"
                     >
                         Reset Universe
+                    </button>
+
+                    <button
+                      onClick={() => setIsMinimalDesign(!isMinimalDesign)}
+                      className="w-full neo-button py-3 px-4 btn-orange uppercase tracking-widest text-sm mt-4"
+                    >
+                        Toggle Design: {isMinimalDesign ? 'Minimal' : 'Premium'}
                     </button>
 
                     <div className="space-y-3 pt-4 border-t border-[#333]">
@@ -222,11 +231,37 @@ function App() {
              
              <div className="neo-container p-6 flex justify-center w-full overflow-hidden">
                  <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
-                    <Grid grid={grid} />
+                    <Grid grid={grid} isMinimal={isMinimalDesign} />
                  </div>
              </div>
           </section>
       </main>
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-auto py-6 border-t border-[#333] bg-[#0a0a0a] text-center w-full relative">
+        <div className="flex justify-center gap-8 text-sm font-semibold uppercase tracking-wider text-[#888]">
+            <div className="relative group cursor-help">
+                <span className="hover:text-[#e0e0e0] transition-colors">ABOUT</span>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                    <div className="neo-container p-4 text-xs normal-case text-[#ccc] text-left leading-relaxed">
+                        This is a student project reflecting Wa-Tor ecosystem dynamics. It simulates the predator-prey relationship between fish and sharks in a toroidal sea.
+                    </div>
+                    {/* Tooltip Arrow */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#171717]"></div>
+                </div>
+            </div>
+
+            <a
+                href="https://github.com/DVDJNBR/WA-TOR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#e0e0e0] hover:glow-cyan transition-all"
+            >
+                SOURCE
+            </a>
+        </div>
+      </footer>
     </div>
   )
 }

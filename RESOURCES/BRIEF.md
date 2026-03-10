@@ -10,7 +10,6 @@ https://en.wikipedia.org/wiki/Wa-Tor#Rules
 
 
 Contexte:
-L'aquarium Nausicaa souhaite installer un nouvel aquarium afin de fêter leurs 40ans.
 
 Cet aquarium possèdera une population composée de proies et de prédateurs afin de montrer l'équilibre entre ceux-ci dans le milieu naturel.
 
