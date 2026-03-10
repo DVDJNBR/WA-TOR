@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Grid = ({ grid }) => {
+const Grid = ({ grid, isMinimal = true }) => {
   if (!grid) return (
     <div className="flex items-center justify-center w-full h-64 text-cyan-500 font-bold animate-pulse glow-cyan">
       GENERATING ECOSYSTEM...
@@ -17,8 +17,8 @@ const Grid = ({ grid }) => {
                 className={`w-6 h-6 md:w-8 md:h-8 transition-all duration-300 ${cell === 'water' ? 'neo-cell' : 'neo-cell'}`}
                 title={`(${x},${y}) ${cell}`}
             >
-              {cell === 'fish' && <div className="shape-x drop-shadow-md animate-pulse"></div>}
-              {cell === 'shark' && <div className="shape-o drop-shadow-md animate-pulse" style={{animationDuration: '2s'}}></div>}
+              {cell === 'fish' && (isMinimal ? <span className="text-xl md:text-2xl drop-shadow-md">🐟</span> : <div className="shape-x drop-shadow-md animate-pulse"></div>)}
+              {cell === 'shark' && (isMinimal ? <span className="text-xl md:text-2xl drop-shadow-md">🦈</span> : <div className="shape-o drop-shadow-md animate-pulse" style={{animationDuration: '2s'}}></div>)}
             </div>
           ))}
         </div>
