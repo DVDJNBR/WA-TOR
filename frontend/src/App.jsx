@@ -75,6 +75,12 @@ function App() {
   }, [running, speed])
 
   useEffect(() => {
+      if (running && stats.steps > 0 && (stats.fish === 0 || stats.shark === 0)) {
+          setRunning(false);
+      }
+  }, [stats, running]);
+
+  useEffect(() => {
       initSim()
 
       const handleMouseMove = (e) => {

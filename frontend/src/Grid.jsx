@@ -14,7 +14,7 @@ const Grid = ({ grid, isMinimal = true }) => {
           {row.map((cell, x) => (
             <div 
                 key={`${x}-${y}`} 
-                className={`w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 transition-all duration-300 flex items-center justify-center ${
+                className={`w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0 transition-all duration-300 flex items-center justify-center ${
                     isMinimal
                       ? 'border border-gray-100 bg-gray-50 hover:bg-gray-100'
                       : 'glass-cell hover:bg-white/10'
