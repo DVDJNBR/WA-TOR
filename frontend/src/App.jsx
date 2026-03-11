@@ -103,8 +103,8 @@ function App() {
                   <h1 className="text-3xl font-bold tracking-tight text-gray-900 uppercase">Wa-Tor Simulation</h1>
               </header>
 
-              <main className="w-full max-w-6xl flex flex-col lg:flex-row gap-6 px-4 pb-12 flex-grow items-start justify-center">
-                  <aside className="w-full lg:w-72 bg-white rounded-lg shadow-sm border border-gray-200 p-5 flex-shrink-0">
+              <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 pb-12">
+                  <aside className="w-full xl:w-80 bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex-shrink-0 flex flex-col">
                       <h2 className="text-sm font-semibold text-gray-700 uppercase mb-4 text-center">Controls</h2>
 
                       <div className="space-y-4">
@@ -128,13 +128,6 @@ function App() {
                               className="w-full py-2 px-3 rounded text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                           >
                               Reset
-                          </button>
-
-                          <button
-                              onClick={() => setIsMinimalDesign(false)}
-                              className="w-full py-2 px-3 rounded text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors mt-2"
-                          >
-                              Switch to Premium
                           </button>
 
                           <div className="pt-4 border-t border-gray-100 space-y-2">
@@ -183,9 +176,16 @@ function App() {
                               </div>
                           </div>
                       </div>
+
+                      <button
+                          onClick={() => setIsMinimalDesign(false)}
+                          className="glass-button w-full py-3 px-4 text-purple-300 uppercase tracking-widest text-sm relative wave-btn mt-auto border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/60"
+                      >
+                          Switch to Premium
+                      </button>
                   </aside>
 
-                  <section className="flex-1 w-full max-w-full lg:max-w-4xl flex flex-col items-center">
+                  <section className="flex-1 space-y-6 flex flex-col items-center w-full max-w-5xl">
                       <div className="flex gap-4 w-full mb-6 justify-center">
                           <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 text-center flex-1 max-w-[150px]">
                               <div className="text-xs text-gray-500 uppercase">Fish</div>
@@ -200,8 +200,10 @@ function App() {
                               <div className="text-xl font-bold text-gray-900">{stats.steps}</div>
                           </div>
                       </div>
-                      <div className="w-full overflow-auto max-h-[75vh] flex justify-center bg-gray-50 p-2 rounded-lg border border-gray-200 relative scrollbar-thin">
-                          <Grid grid={grid} isMinimal={true} />
+                      <div className="bg-gray-50 p-6 flex justify-center w-full overflow-hidden border border-gray-200 rounded-lg shadow-sm">
+                          <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
+                              <Grid grid={grid} isMinimal={true} />
+                          </div>
                       </div>
                   </section>
               </main>
@@ -249,8 +251,8 @@ function App() {
       
       <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow">
           {/* Controls Panel */}
-          <aside className="w-full xl:w-80 space-y-6 flex-shrink-0">
-              <div className="glass-panel p-6">
+          <aside className="w-full xl:w-80 space-y-6 flex-shrink-0 flex flex-col">
+              <div className="glass-panel p-6 flex flex-col h-full">
                 <h2 className="text-xl font-bold mb-6 text-center text-sky-100 uppercase tracking-widest border-b border-sky-500/20 pb-4">
                   Command Deck
                 </h2>
@@ -281,15 +283,6 @@ function App() {
                           className="glass-button w-full py-3 px-4 text-sky-200 uppercase tracking-widest text-sm relative wave-btn"
                         >
                             Seed Ocean
-                        </button>
-                    </div>
-
-                    <div className="wave-btn-container">
-                        <button
-                          onClick={() => setIsMinimalDesign(true)}
-                          className="glass-button w-full py-3 px-4 text-purple-300 uppercase tracking-widest text-sm relative wave-btn mt-2 border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/60 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]"
-                        >
-                            Switch to Minimal
                         </button>
                     </div>
 
@@ -372,6 +365,13 @@ function App() {
                             </div>
                         </div>
                     </div>
+
+                    <button
+                        onClick={() => setIsMinimalDesign(true)}
+                        className="w-full py-2 px-3 rounded text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors mt-auto uppercase tracking-widest"
+                    >
+                        Switch to Minimal
+                    </button>
                 </div>
               </div>
           </aside>
