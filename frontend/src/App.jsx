@@ -13,10 +13,10 @@ function App() {
 
   // Simulation Parameters
   const [params, setParams] = useState({
-      width: 40,
-      height: 25,
-      num_fish: 150,
-      num_sharks: 15,
+      width: 30,
+      height: 20,
+      num_fish: 80,
+      num_sharks: 10,
       fish_breed_time: 3,
       shark_breed_time: 12,
       shark_starve_time: 3
@@ -200,8 +200,8 @@ function App() {
                               <div className="text-xl font-bold text-gray-900">{stats.steps}</div>
                           </div>
                       </div>
-                      <div className="bg-gray-50 p-6 flex justify-center w-full overflow-hidden border border-gray-200 rounded-lg shadow-sm">
-                          <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
+                      <div className="bg-gray-50 p-6 flex justify-center w-full border border-gray-200 rounded-lg shadow-sm">
+                          <div className="max-w-full rounded-lg relative z-10">
                               <Grid grid={grid} isMinimal={true} />
                           </div>
                       </div>
@@ -393,8 +393,8 @@ function App() {
                  </div>
              </div>
              
-             <div className="glass-panel p-6 flex justify-center w-full overflow-hidden shadow-2xl shadow-sky-900/50">
-                 <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
+             <div className="glass-panel p-6 flex justify-center w-full shadow-2xl shadow-sky-900/50">
+                 <div className="max-w-full rounded-lg relative z-10">
                     <Grid grid={grid} isMinimal={false} />
                  </div>
              </div>
