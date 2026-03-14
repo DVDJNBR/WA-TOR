@@ -277,3 +277,59 @@ input[type="range"].glass-slider::-webkit-slider-thumb {
 body.theme-premium {
     cursor: crosshair;
 }
+
+/* Custom Toggle Switch for Premium/Minimal Design */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1; /* Default/Minimal track (gray-300) */
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.switch input:checked + .slider {
+    background-color: #38bdf8; /* Premium track (sky-400) */
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: #0f172a; /* Dark inside circle when premium */
+    box-shadow: 0 0 5px rgba(56, 189, 248, 0.8);
+}
+
+/* Specific styling for when in premium theme to match the glassmorphism look */
+body.theme-premium .switch .slider {
+    background-color: rgba(14, 165, 233, 0.2);
+}

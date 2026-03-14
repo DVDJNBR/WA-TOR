@@ -13,8 +13,8 @@ function App() {
 
   // Simulation Parameters
   const [params, setParams] = useState({
-      width: 30,
-      height: 20,
+      width: 20,
+      height: 15,
       num_fish: 80,
       num_sharks: 10,
       fish_breed_time: 3,
@@ -103,8 +103,8 @@ function App() {
                   <h1 className="text-3xl font-bold tracking-tight text-gray-900 uppercase">Wa-Tor Simulation</h1>
               </header>
 
-              <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 pb-12">
-                  <aside className="w-full xl:w-80 bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex-shrink-0 flex flex-col">
+              <main className="max-w-6xl w-full mx-auto flex flex-col md:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 pb-12">
+                  <aside className="w-full md:w-64 bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex-shrink-0 flex flex-col">
                       <h2 className="text-sm font-semibold text-gray-700 uppercase mb-4 text-center">Controls</h2>
 
                       <div className="space-y-4">
@@ -177,15 +177,9 @@ function App() {
                           </div>
                       </div>
 
-                      <button
-                          onClick={() => setIsMinimalDesign(false)}
-                          className="glass-button w-full py-3 px-4 text-purple-300 uppercase tracking-widest text-sm relative wave-btn mt-auto border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/60"
-                      >
-                          Switch to Premium
-                      </button>
                   </aside>
 
-                  <section className="flex-1 space-y-6 flex flex-col items-center w-full max-w-5xl">
+                  <section className="flex-1 space-y-6 flex flex-col items-center w-full max-w-3xl">
                       <div className="flex gap-4 w-full mb-6 justify-center">
                           <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 text-center flex-1 max-w-[150px]">
                               <div className="text-xs text-gray-500 uppercase">Fish</div>
@@ -230,6 +224,13 @@ function App() {
                     Source
                  </a>
               </footer>
+              <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2">
+                  <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Premium Mode</span>
+                  <label className="switch">
+                      <input type="checkbox" checked={!isMinimalDesign} onChange={() => setIsMinimalDesign(!isMinimalDesign)} />
+                      <span className="slider round"></span>
+                  </label>
+              </div>
           </div>
       )
   }
@@ -249,9 +250,9 @@ function App() {
         </h1>
       </header>
       
-      <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow">
+      <main className="max-w-6xl w-full mx-auto flex flex-col md:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4">
           {/* Controls Panel */}
-          <aside className="w-full xl:w-80 space-y-6 flex-shrink-0 flex flex-col">
+          <aside className="w-full md:w-64 space-y-6 flex-shrink-0 flex flex-col">
               <div className="glass-panel p-6 flex flex-col h-full">
                 <h2 className="text-xl font-bold mb-6 text-center text-sky-100 uppercase tracking-widest border-b border-sky-500/20 pb-4">
                   Command Deck
@@ -366,18 +367,12 @@ function App() {
                         </div>
                     </div>
 
-                    <button
-                        onClick={() => setIsMinimalDesign(true)}
-                        className="w-full py-2 px-3 rounded text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors mt-auto uppercase tracking-widest"
-                    >
-                        Switch to Minimal
-                    </button>
                 </div>
               </div>
           </aside>
 
           {/* Visualization Section */}
-          <section className="flex-1 space-y-6 flex flex-col items-center w-full max-w-5xl">
+          <section className="flex-1 space-y-6 flex flex-col items-center w-full max-w-3xl">
              <div className="grid grid-cols-3 gap-6 w-full">
                  <div className="glass-panel p-4 flex flex-col items-center justify-center">
                     <span className="text-[11px] text-teal-300/70 uppercase font-bold tracking-widest mb-1">Fish Population</span>
@@ -428,6 +423,14 @@ function App() {
            Source
         </a>
       </footer>
+
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2">
+          <span className="text-[10px] uppercase tracking-widest text-sky-200/70 font-bold">Premium Mode</span>
+          <label className="switch">
+              <input type="checkbox" checked={!isMinimalDesign} onChange={() => setIsMinimalDesign(!isMinimalDesign)} />
+              <span className="slider round"></span>
+          </label>
+      </div>
     </div>
   )
 }
