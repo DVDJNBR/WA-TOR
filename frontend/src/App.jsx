@@ -13,10 +13,10 @@ function App() {
 
   // Simulation Parameters
   const [params, setParams] = useState({
-      width: 40,
-      height: 25,
-      num_fish: 150,
-      num_sharks: 15,
+      width: 20,
+      height: 15,
+      num_fish: 40,
+      num_sharks: 5,
       fish_breed_time: 3,
       shark_breed_time: 12,
       shark_starve_time: 3
@@ -103,8 +103,8 @@ function App() {
                   <h1 className="text-3xl font-bold tracking-tight text-gray-900 uppercase">Wa-Tor Simulation</h1>
               </header>
 
-              <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 pb-12">
-                  <aside className="w-full xl:w-80 bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex-shrink-0 flex flex-col">
+              <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 pb-12 w-full">
+                  <aside className="w-full xl:w-80 h-[42rem] bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex-shrink-0 flex flex-col">
                       <h2 className="text-sm font-semibold text-gray-700 uppercase mb-4 text-center">Controls</h2>
 
                       <div className="space-y-4">
@@ -179,9 +179,15 @@ function App() {
 
                       <button
                           onClick={() => setIsMinimalDesign(false)}
-                          className="glass-button w-full py-3 px-4 text-purple-300 uppercase tracking-widest text-sm relative wave-btn mt-auto border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/60"
+                          className="glass-button w-full py-3 px-4 text-sky-200 uppercase tracking-widest text-sm relative wave-btn mt-auto border-sky-500/30 hover:bg-sky-500/10 hover:border-sky-500/60"
                       >
-                          Switch to Premium
+                          <div className="flex items-center justify-between">
+                              <span className="text-xs">Minimal</span>
+                              <div className="w-10 h-5 bg-sky-900/50 rounded-full border border-sky-500/30 relative flex items-center p-0.5">
+                                  <div className="w-4 h-4 bg-sky-400 rounded-full shadow-[0_0_10px_rgba(56,189,248,0.5)] absolute left-0.5"></div>
+                              </div>
+                              <span className="text-xs font-bold text-sky-300 glow-blue">Premium</span>
+                          </div>
                       </button>
                   </aside>
 
@@ -200,8 +206,8 @@ function App() {
                               <div className="text-xl font-bold text-gray-900">{stats.steps}</div>
                           </div>
                       </div>
-                      <div className="bg-gray-50 p-6 flex justify-center w-full overflow-hidden border border-gray-200 rounded-lg shadow-sm">
-                          <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
+                      <div className="bg-gray-50 p-6 flex justify-center w-full overflow-hidden border border-gray-200 rounded-lg shadow-sm h-[32rem]">
+                          <div className="overflow-auto max-w-full max-h-full rounded-lg relative z-10 scrollbar-thin">
                               <Grid grid={grid} isMinimal={true} />
                           </div>
                       </div>
@@ -245,13 +251,13 @@ function App() {
 
       <header className="max-w-7xl mx-auto flex flex-col items-center mb-10 text-center relative z-10 pt-4">
         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 uppercase drop-shadow-2xl">
-          <span className="glow-white font-serif italic pr-2">Wa-Tor</span> <span className="text-sky-200 font-light">Ocean</span>
+          <span className="glow-white font-serif italic pr-2">Wa-Tor</span>
         </h1>
       </header>
       
-      <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow">
+      <main className="max-w-[90rem] mx-auto flex flex-col xl:flex-row gap-8 items-start justify-center relative z-10 flex-grow px-4 w-full">
           {/* Controls Panel */}
-          <aside className="w-full xl:w-80 space-y-6 flex-shrink-0 flex flex-col">
+          <aside className="w-full xl:w-80 h-[42rem] space-y-6 flex-shrink-0 flex flex-col">
               <div className="glass-panel p-6 flex flex-col h-full">
                 <h2 className="text-xl font-bold mb-6 text-center text-sky-100 uppercase tracking-widest border-b border-sky-500/20 pb-4">
                   Command Deck
@@ -368,9 +374,15 @@ function App() {
 
                     <button
                         onClick={() => setIsMinimalDesign(true)}
-                        className="w-full py-2 px-3 rounded text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors mt-auto uppercase tracking-widest"
+                        className="w-full py-2 px-3 rounded-full text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors mt-auto"
                     >
-                        Switch to Minimal
+                        <div className="flex items-center justify-between px-2">
+                            <span className="text-xs font-bold text-gray-800 uppercase tracking-widest">Minimal</span>
+                            <div className="w-10 h-5 bg-gray-300 rounded-full relative flex items-center p-0.5">
+                                <div className="w-4 h-4 bg-white rounded-full shadow-sm absolute right-0.5"></div>
+                            </div>
+                            <span className="text-xs text-gray-500 uppercase tracking-widest">Premium</span>
+                        </div>
                     </button>
                 </div>
               </div>
@@ -393,8 +405,8 @@ function App() {
                  </div>
              </div>
              
-             <div className="glass-panel p-6 flex justify-center w-full overflow-hidden shadow-2xl shadow-sky-900/50">
-                 <div className="overflow-auto max-w-full max-h-[70vh] rounded-lg relative z-10 scrollbar-thin">
+             <div className="glass-panel p-6 flex justify-center w-full overflow-hidden shadow-2xl shadow-sky-900/50 h-[32rem]">
+                 <div className="overflow-auto max-w-full max-h-full rounded-lg relative z-10 scrollbar-thin">
                     <Grid grid={grid} isMinimal={false} />
                  </div>
              </div>
