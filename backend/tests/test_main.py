@@ -5,7 +5,7 @@ client = TestClient(app)
 
 def test_init_simulation():
     response = client.post(
-        "/init",
+        "/api/init",
         json={
             "width": 10,
             "height": 10,
@@ -22,10 +22,10 @@ def test_init_simulation():
 def test_get_state():
     # First ensure we have a known state
     client.post(
-        "/init",
+        "/api/init",
         json={"width": 5, "height": 5, "num_fish": 1, "num_sharks": 0}
     )
-    response = client.get("/state")
+    response = client.get("/api/state")
     assert response.status_code == 200
     state = response.json()["state"]
     assert len(state) == 5
@@ -36,16 +36,16 @@ def test_get_state():
 def test_step_simulation():
     # Initialize simulation
     client.post(
-        "/init",
+        "/api/init",
         json={"width": 5, "height": 5, "num_fish": 1, "num_sharks": 0, "fish_breed_time": 10}
     )
 
     # Get initial state
-    initial_response = client.get("/state")
+    initial_response = client.get("/api/state")
     initial_state = initial_response.json()["state"]
 
     # Step simulation
-    step_response = client.post("/step")
+    step_response = client.post("/api/step")
     assert step_response.status_code == 200
     new_state = step_response.json()["state"]
 

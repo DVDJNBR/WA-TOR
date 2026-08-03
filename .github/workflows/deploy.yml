@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Test Docker Build
-        run: docker compose build
+        run: docker build -t wator .
 
   deploy:
     runs-on: ubuntu-latest
@@ -32,4 +32,7 @@ jobs:
           script: |
             cd /home/ubuntu/wa-tor
             git pull origin main
-            docker compose up --build -d
+            docker build -t wator .
+            docker stop wator || true
+            docker rm wator || true
+            docker run -d --name wator --restart always -p 8081:8000 wator

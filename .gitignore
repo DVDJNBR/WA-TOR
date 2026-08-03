@@ -220,3 +220,6 @@ yarn-error.log*
 # VPS Specific
 nginx_config_vhost
 
+# Frontend build copied into the backend image at Docker build time
+backend/app/static/
+
