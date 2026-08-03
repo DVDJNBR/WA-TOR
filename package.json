@@ -1,0 +1,10 @@
+{
+  "name": "wator",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"cd backend && uv run uvicorn app.main:app --reload --port 8000\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
