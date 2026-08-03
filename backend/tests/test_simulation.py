@@ -1,5 +1,7 @@
 import pytest
-from app.wator import WatorSimulation, Fish, Shark
+from app.simulation import WatorSimulation
+from app.models.fish import Fish
+from app.models.shark import Shark
 
 def test_initialization():
     sim = WatorSimulation(width=10, height=10, num_fish=5, num_sharks=5)
