@@ -52,8 +52,13 @@ def test_sharks_that_starve_are_removed():
     assert len(sim.shark_list) == 0
 
 
-def test_population_grows_when_breed_time_is_reached():
-    sim = make_simulation(num_tuna=1, num_sharks=1, tuna_breed_time=1, shark_breed_time=1)
+def test_tuna_population_grows_when_breed_time_is_reached():
+    sim = make_simulation(num_tuna=1, num_sharks=0, tuna_breed_time=1)
     sim.step()
     assert len(sim.tuna_list) == 2
+
+
+def test_shark_population_grows_when_breed_time_is_reached():
+    sim = make_simulation(num_tuna=0, num_sharks=1, shark_breed_time=1)
+    sim.step()
     assert len(sim.shark_list) == 2
