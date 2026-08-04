@@ -39,3 +39,14 @@ def test_update_replaces_previous_state():
 
     grid.update([], [])
     assert grid.is_empty(0, 0)
+
+
+def test_to_rows_labels_each_cell():
+    grid = Grid(width=2, height=2)
+    tuna = Tuna(0, 0)
+    shark = Shark(1, 0)
+    grid.update([tuna], [shark])
+
+    rows = grid.to_rows()
+
+    assert rows == [["tuna", "shark"], ["water", "water"]]

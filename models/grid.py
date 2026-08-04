@@ -19,3 +19,19 @@ class Grid:
 
     def has_tuna(self, x: int, y: int) -> bool:
         return self.cells.get((x, y)) == "tuna"
+
+    def to_rows(self) -> list[list[str]]:
+        """Return the grid as rows of cell labels for display."""
+        rows = []
+        for y in range(self.height):
+            row = []
+            for x in range(self.width):
+                if self.has_tuna(x, y):
+                    row.append("tuna")
+                elif not self.is_empty(x, y):
+                    row.append("shark")
+                else:
+                    row.append("water")
+            rows.append(row)
+        return rows
+            # scans row by row, cell by cell
