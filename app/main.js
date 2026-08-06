@@ -1,8 +1,8 @@
 import { loadPyodide } from 'https://cdn.jsdelivr.net/npm/pyodide@314.0.3/pyodide.mjs'
 
 const params = {
-  width: 20,
-  height: 15,
+  width: 30,
+  height: 20,
   num_tuna: 80,
   num_sharks: 10,
   tuna_breed_time: 3,
@@ -52,7 +52,10 @@ app.innerHTML = `
       </div>
       <div id="grid" class="grid"></div>
     </div>
-    <a class="source" href="https://github.com/DVDJNBR/WA-TOR" target="_blank" rel="noopener">source</a>
+    <div class="links">
+      <span class="about" data-tooltip="A predator/prey simulation: find the balance where tuna and sharks both survive long-term. Tuna 🐟 breed on empty cells; sharks 🦈 hunt tuna, breed, and starve without food.">about</span>
+      <a class="source" href="https://github.com/DVDJNBR/WA-TOR" target="_blank" rel="noopener">source</a>
+    </div>
   </div>
 `
 
@@ -110,7 +113,7 @@ resetBtn.addEventListener('click', () => {
 function start() {
   running = true
   toggleBtn.textContent = 'pause'
-  intervalId = setInterval(stepSim, speed)
+  intervalId = setInterval(stepSim, 1030 - speed)
 }
 
 function stop() {
