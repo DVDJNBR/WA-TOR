@@ -1,6 +1,6 @@
 # Wa-Tor 🐟🦈
 
-![Wa-Tor overview](assets/overview.jpg)
+![Wa-Tor overview](assets/01-overview.jpg)
 
 A predator/prey ecosystem simulation on a toroidal sea (it wraps around itself, like a donut), based on A.K. Dewdney's model (Scientific American, 1984). Built to practice object-oriented programming in Python.
 
